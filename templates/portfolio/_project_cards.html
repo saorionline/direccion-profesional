@@ -1,0 +1,10 @@
+<ul class="cards">
+  {% for project in projects %}
+  <li class="card">
+    <h3><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h3>
+    {% if project.summary %}<p>{{ project.summary }}</p>{% endif %}
+  </li>
+  {% empty %}
+  <li class="empty">Todavía no hay proyectos publicados.</li>
+  {% endfor %}
+</ul>

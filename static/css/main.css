@@ -1,0 +1,91 @@
+:root {
+  --bg: #fbfaf8;
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --accent: #2f5d8a;
+  --border: #e4e1dc;
+  --card: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161616;
+    --text: #e8e6e3;
+    --muted: #9a9a9a;
+    --accent: #8db8e2;
+    --border: #2c2c2c;
+    --card: #1e1e1e;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+a { color: var(--accent); }
+
+.site-header, main, .site-footer {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand { font-weight: 700; text-decoration: none; color: var(--text); }
+.site-header nav { display: flex; gap: 20px; }
+.site-header nav a { text-decoration: none; }
+
+main { padding-top: 32px; padding-bottom: 48px; }
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+h1, h2, h3 { line-height: 1.25; }
+.lead { font-size: 1.15em; color: var(--muted); }
+time { color: var(--muted); font-size: 14px; }
+
+.cards, .list { list-style: none; padding: 0; }
+.cards { display: grid; gap: 16px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+.card h3 { margin: 0 0 4px; }
+.card p { margin: 0; color: var(--muted); }
+.list li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.list li p { margin: 4px 0 0; color: var(--muted); }
+.list time { margin-left: 8px; }
+.empty { color: var(--muted); font-style: italic; }
+
+.prose section { margin-top: 32px; }
+.prose img { max-width: 100%; }
+.prose pre { overflow-x: auto; background: var(--card); border: 1px solid var(--border); padding: 12px; border-radius: 6px; }
+
+.resources ul { list-style: none; padding: 0; }
+.resources li { padding: 6px 0; }
+.tag {
+  display: inline-block;
+  min-width: 110px;
+  font-size: 13px;
+  color: var(--muted);
+}

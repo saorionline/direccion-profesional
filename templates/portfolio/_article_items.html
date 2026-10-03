@@ -1,0 +1,11 @@
+<ul class="list">
+  {% for article in articles %}
+  <li>
+    <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+    {% if article.published_at %}<time datetime="{{ article.published_at|date:'Y-m-d' }}">{{ article.published_at|date:"j M Y" }}</time>{% endif %}
+    {% if article.summary %}<p>{{ article.summary }}</p>{% endif %}
+  </li>
+  {% empty %}
+  <li class="empty">Todavía no hay artículos publicados.</li>
+  {% endfor %}
+</ul>

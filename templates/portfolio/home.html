@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="intro">
+  <h1>Portafolio</h1>
+  <p>Proyectos contados como historia: el problema, el proceso, las decisiones y el resultado.</p>
+</section>
+
+<section>
+  <h2>Proyectos recientes</h2>
+  {% include "portfolio/_project_cards.html" %}
+  <p><a href="{% url 'portfolio:project_list' %}">Ver todos los proyectos →</a></p>
+</section>
+
+<section>
+  <h2>Artículos recientes</h2>
+  {% include "portfolio/_article_items.html" %}
+  <p><a href="{% url 'portfolio:article_list' %}">Ver todos los artículos →</a></p>
+</section>
+{% endblock %}

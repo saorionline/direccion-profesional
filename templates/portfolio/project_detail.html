@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load markdown_extras %}
+
+{% block title %}{{ project.title }} · Portafolio{% endblock %}
+
+{% block content %}
+<article class="prose">
+  <h1>{{ project.title }}</h1>
+  {% if project.summary %}<p class="lead">{{ project.summary }}</p>{% endif %}
+
+  {% for heading, body in project.sections %}
+  <section>
+    <h2>{{ heading }}</h2>
+    {{ body|markdown }}
+  </section>
+  {% endfor %}
+
+  {% with resources=project.resources.all %}
+  {% if resources %}
+  <section class="resources">
+    <h2>Recursos externos</h2>
+    <ul>
+      {% for resource in resources %}
+      <li>
+        <span class="tag">{{ resource.get_kind_display }}</span>
+        <a href="{{ resource.url }}" target="_blank" rel="noopener">{{ resource }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  {% endwith %}
+</article>
+{% endblock %}
