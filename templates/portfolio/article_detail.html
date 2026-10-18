@@ -9,5 +9,8 @@
   {% if article.published_at %}<time datetime="{{ article.published_at|date:'Y-m-d' }}">{{ article.published_at|date:"j \d\e F \d\e Y" }}</time>{% endif %}
   {% if article.summary %}<p class="lead">{{ article.summary }}</p>{% endif %}
   {{ article.body|markdown }}
+  {% with ref=article.reference %}{% if ref %}
+  <p class="source">Fuente: {% if ref.authors %}{{ ref.authors }} {% endif %}{% if ref.year %}({{ ref.year }}). {% endif %}<cite>{{ ref.title }}</cite>.{% if ref.source %} {{ ref.source }}.{% endif %}</p>
+  {% endif %}{% endwith %}
 </article>
 {% endblock %}

@@ -29,6 +29,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_editable = ["published"]
     search_fields = ["title", "summary", "body"]
     prepopulated_fields = {"slug": ["title"]}
+    autocomplete_fields = ["reference"]
 
 
 @admin.register(Reference)

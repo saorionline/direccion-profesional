@@ -78,6 +78,11 @@ class Article(models.Model):
     slug = models.SlugField(unique=True)
     summary = models.CharField("resumen", max_length=300, blank=True)
     body = models.TextField("contenido", blank=True)
+    reference = models.ForeignKey(
+        "Reference", on_delete=models.SET_NULL, null=True, blank=True,
+        related_name="articles", verbose_name="referencia",
+        help_text="Fuente de la bibliografía que sustenta el artículo.",
+    )
 
     published = models.BooleanField("publicado", default=False)
     published_at = models.DateField("fecha de publicación", null=True, blank=True)
