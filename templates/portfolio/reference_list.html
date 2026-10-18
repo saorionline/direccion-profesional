@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Bibliografía · Portafolio{% endblock %}
+
+{% block content %}
+<h1>Bibliografía</h1>
+<ul class="list references">
+  {% for ref in references %}
+  <li>
+    {% if ref.authors %}{{ ref.authors }} {% endif %}{% if ref.year %}({{ ref.year }}). {% endif %}<cite>{{ ref.title }}</cite>.{% if ref.source %} {{ ref.source }}.{% endif %}
+    {% if ref.url %}<a href="{{ ref.url }}" target="_blank" rel="noopener">{{ ref.url }}</a>{% endif %}
+  </li>
+  {% empty %}
+  <li class="empty">Todavía no hay referencias publicadas.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

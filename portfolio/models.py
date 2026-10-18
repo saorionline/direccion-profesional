@@ -94,3 +94,31 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse("portfolio:article_detail", args=[self.slug])
+
+
+class Reference(models.Model):
+    """Entrada de la bibliografía."""
+
+    title = models.CharField("título", max_length=300)
+    authors = models.CharField(
+        "autor(es)", max_length=300, blank=True,
+        help_text="Ej.: Pérez, A. y Gómez, B.",
+    )
+    year = models.PositiveSmallIntegerField("año", null=True, blank=True)
+    source = models.CharField(
+        "editorial / fuente", max_length=300, blank=True,
+        help_text="Editorial, revista, sitio web, etc.",
+    )
+    url = models.URLField("enlace (URL o DOI)", max_length=500, blank=True)
+
+    published = models.BooleanField("publicado", default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["authors", "year", "title"]
+        verbose_name = "referencia"
+        verbose_name_plural = "bibliografía"
+
+    def __str__(self):
+        return self.title

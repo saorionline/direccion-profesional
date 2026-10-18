@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Article, Project, Resource
+from .models import Article, Project, Reference, Resource
 
 
 class ResourceInline(admin.TabularInline):
@@ -29,3 +29,11 @@ class ArticleAdmin(admin.ModelAdmin):
     list_editable = ["published"]
     search_fields = ["title", "summary", "body"]
     prepopulated_fields = {"slug": ["title"]}
+
+
+@admin.register(Reference)
+class ReferenceAdmin(admin.ModelAdmin):
+    list_display = ["title", "authors", "year", "published"]
+    list_editable = ["published"]
+    list_filter = ["published", "year"]
+    search_fields = ["title", "authors", "source"]

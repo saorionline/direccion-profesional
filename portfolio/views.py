@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 
-from .models import Article, Project
+from .models import Article, Project, Reference
 
 
 def home(request):
@@ -30,3 +30,9 @@ def article_list(request):
 def article_detail(request, slug):
     article = get_object_or_404(Article, slug=slug, published=True)
     return render(request, "portfolio/article_detail.html", {"article": article})
+
+
+def reference_list(request):
+    return render(request, "portfolio/reference_list.html", {
+        "references": Reference.objects.filter(published=True),
+    })

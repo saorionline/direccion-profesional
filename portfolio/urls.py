@@ -10,4 +10,5 @@ urlpatterns = [
     path("proyectos/<slug:slug>/", views.project_detail, name="project_detail"),
     path("articulos/", views.article_list, name="article_list"),
     path("articulos/<slug:slug>/", views.article_detail, name="article_detail"),
+    path("bibliografia/", views.reference_list, name="reference_list"),
 ]

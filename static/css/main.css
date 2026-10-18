@@ -89,3 +89,6 @@ time { color: var(--muted); font-size: 14px; }
   font-size: 13px;
   color: var(--muted);
 }
+
+.references li { padding-left: 2em; text-indent: -2em; }
+.references a { word-break: break-all; }

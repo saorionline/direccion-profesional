@@ -8,7 +8,7 @@ dashboards, PDFs, datos) contienen la evidencia y los artefactos pesados.
 ```
 config/                  Configuración del proyecto Django
 portfolio/
-  models.py              Project, Resource (recursos externos), Article
+  models.py              Project, Resource (recursos externos), Article, Reference (bibliografía)
   admin.py               Donde se escribe el contenido
   views.py / urls.py     Páginas públicas
   templatetags/          Filtro |markdown
